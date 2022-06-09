@@ -1,4 +1,4 @@
-import { IArray } from "../../types";
+import { IArray } from '../../types';
 
 export const chopArray = <T extends IArray>(toChop: T, chopSize: number): T[] => {
   const result:T[] = [];

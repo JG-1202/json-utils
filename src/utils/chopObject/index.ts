@@ -1,4 +1,4 @@
-import { IObject } from "../../types";
+import { IObject } from '../../types';
 
 export const chopObject = <T extends IObject>(toChop: T, chopSize: number): Partial<T>[] => {
   const result = [];
