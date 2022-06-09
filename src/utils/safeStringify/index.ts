@@ -1,8 +1,8 @@
 import { failureCallbackFunction } from '../../helpers';
 
-export const safeParse = (inputVariable: any, callbackOnFailure = failureCallbackFunction) => {
+export const safeStringify = (inputVariable: any, callbackOnFailure = failureCallbackFunction) => {
   try {
-    return JSON.parse(inputVariable);
+    return JSON.stringify(inputVariable);
   } catch (error) {
     return callbackOnFailure(error, inputVariable);
   }

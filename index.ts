@@ -5,6 +5,7 @@ import { isJson } from './src/utils/isJson';
 import { isObject } from './src/utils/isObject';
 import { isNumber } from './src/utils/isNumber';
 import { safeParse } from './src/utils/safeParse';
+import { safeStringify } from './src/utils/safeStringify';
 
 export {
   chopArray,
@@ -14,4 +15,5 @@ export {
   isObject,
   isNumber,
   safeParse,
+  safeStringify,
 };

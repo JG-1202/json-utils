@@ -1,7 +1,7 @@
 import { safeParse } from '../index';
 
 describe('safeParse', () => {
-  it('Validates whether input is an Object', () => {
+  it('Parses stringified input', () => {
     const input = { foo: 'bar' };
     expect(safeParse(JSON.stringify(input))).toStrictEqual(input);
   });
