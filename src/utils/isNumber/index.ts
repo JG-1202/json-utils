@@ -1,5 +1,10 @@
 import { isArray } from '../isArray';
 
+/**
+ * Check whether variable is a number
+ * @param variable variable to be checked
+ * @returns Boolean whether variable is a number
+ */
 export const isNumber = (variable: any): variable is number | string => (
   variable === 0
     || (

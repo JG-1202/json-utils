@@ -8,6 +8,7 @@ describe('isObject', () => {
     expect(isJson([1, 2, 3])).toStrictEqual(true);
     expect(isJson(null)).toStrictEqual(false);
     expect(isJson(new Date())).toStrictEqual(false);
+    expect(isJson(Buffer.from([]))).toStrictEqual(false);
     expect(isJson('{}')).toStrictEqual(false);
     expect(isJson('[]')).toStrictEqual(false);
   });

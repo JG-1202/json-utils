@@ -7,6 +7,7 @@ describe('isArray', () => {
     expect(isArray({})).toStrictEqual(false);
     expect(isArray(null)).toStrictEqual(false);
     expect(isArray(undefined)).toStrictEqual(false);
+    expect(isArray(Buffer.from([]))).toStrictEqual(false);
     expect(isArray('[]')).toStrictEqual(false);
   });
 });
