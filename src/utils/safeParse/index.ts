@@ -1,12 +1,12 @@
-const errorCallbackFunction = (error: any, variable: any) => {
+const errorCallbackFunction = (error: any, inputVariable: any) => {
   void error;
-  return variable;
+  return inputVariable;
 };
 
-export const safeParse = (variable: any, callbackOnError = errorCallbackFunction) => {
+export const safeParse = (inputVariable: any, callbackOnError = errorCallbackFunction) => {
   try {
-    return JSON.parse(variable);
+    return JSON.parse(inputVariable);
   } catch (error) {
-    return callbackOnError(error, variable);
+    return callbackOnError(error, inputVariable);
   }
 };
