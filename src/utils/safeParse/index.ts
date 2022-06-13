@@ -2,10 +2,10 @@ import { FailureCallbackFunction, IJson } from '../../types';
 import { isJson } from '../isJson';
 
 const returnValue = <
-T extends any,
-U extends any,
+T extends unknown,
+U extends unknown,
 V extends FailureCallbackFunction<U> | undefined = undefined>(
-    error: any, inputVariable: T, callbackOnFailure?: V,
+    error: unknown, inputVariable: T, callbackOnFailure?: V,
   ): V extends undefined ? T | IJson : U | IJson => (
     callbackOnFailure ? callbackOnFailure(error, inputVariable) : inputVariable as any);
 
@@ -18,8 +18,8 @@ V extends FailureCallbackFunction<U> | undefined = undefined>(
  * (when not parsable to JSON) or (parsed) JSON element
  */
 export const safeParse = <
-T extends any,
-U extends any,
+T extends unknown,
+U extends unknown,
 V extends FailureCallbackFunction<U> | undefined = undefined>(
     inputVariable: T,
     callbackOnFailure?: FailureCallbackFunction<U> & V,
