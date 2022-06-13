@@ -13,17 +13,28 @@ describe('safeParse', () => {
     const input = null;
     expect(safeParse(input)).toStrictEqual(input);
   });
-  it('Calls provided callback', () => {
+  it('Calls provided callback on failed parse attempt', () => {
     const input = 'someString';
     const callbackFn = jest.fn(() => null);
-    let expectedError;
-    try {
-      JSON.parse(input);
-    } catch (err) {
-      expectedError = err;
-    }
-    expect(safeParse(input, callbackFn)).toStrictEqual(null);
+    const result = safeParse(input, callbackFn);
+    expect(result).toStrictEqual(null);
     expect(callbackFn).toHaveBeenCalledTimes(1);
-    expect(callbackFn).toHaveBeenCalledWith(expectedError, input);
+    expect(callbackFn).toHaveBeenCalledWith(new Error('[safeParse] Failed to parse: Unexpected token s in JSON at position 0'), input);
+  });
+  it('Calls provided callback on invalid type', () => {
+    const input = 123;
+    const callbackFn = jest.fn(() => null);
+    const result = safeParse(input, callbackFn);
+    expect(result).toStrictEqual(null);
+    expect(callbackFn).toHaveBeenCalledTimes(1);
+    expect(callbackFn).toHaveBeenCalledWith(new Error('[safeParse] Type number is not string.'), input);
+  });
+  it('Calls provided callback on invalid type', () => {
+    const input = '123';
+    const callbackFn = jest.fn(() => null);
+    const result = safeParse(input, callbackFn);
+    expect(result).toStrictEqual(null);
+    expect(callbackFn).toHaveBeenCalledTimes(1);
+    expect(callbackFn).toHaveBeenCalledWith(new Error('[safeParse] Parsed is not JSON.'), input);
   });
 });
