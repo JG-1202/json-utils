@@ -1,3 +1,4 @@
+import { chop } from './src/utils/chop';
 import { chopArray } from './src/utils/chopArray';
 import { chopObject } from './src/utils/chopObject';
 import { deepParse } from './src/utils/deepParse';
@@ -8,6 +9,7 @@ import { isNumber } from './src/utils/isNumber';
 import { safeParse } from './src/utils/safeParse';
 
 export {
+  chop,
   chopArray,
   chopObject,
   deepParse,
