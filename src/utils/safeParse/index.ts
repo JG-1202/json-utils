@@ -6,7 +6,7 @@ T extends any,
 U extends any,
 V extends FailureCallbackFunction<U> | undefined = undefined>(
     error: any, inputVariable: T, callbackOnFailure?: V,
-  ): V extends undefined ? T | IJson : U | T | IJson => (
+  ): V extends undefined ? T | IJson : U | IJson => (
     callbackOnFailure ? callbackOnFailure(error, inputVariable) : inputVariable as any);
 
 /**
@@ -22,8 +22,8 @@ T extends any,
 U extends any,
 V extends FailureCallbackFunction<U> | undefined = undefined>(
     inputVariable: T,
-    callbackOnFailure?: V,
-  ): V extends undefined ? T | IJson : U | T | IJson => {
+    callbackOnFailure?: FailureCallbackFunction<U> & V,
+  ): V extends undefined ? T | IJson : U | IJson => {
   if (typeof inputVariable === 'string') {
     try {
       const parsed = JSON.parse(inputVariable);
