@@ -9,6 +9,10 @@ describe('safeParse', () => {
     const input = 'someString';
     expect(safeParse(input)).toStrictEqual(input);
   });
+  it('Returns non-string', () => {
+    const input = null;
+    expect(safeParse(input)).toStrictEqual(input);
+  });
   it('Calls provided callback', () => {
     const input = 'someString';
     const callbackFn = jest.fn(() => null);

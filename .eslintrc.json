@@ -19,6 +19,7 @@
   "rules": {
       "no-new": 0,
       "import/prefer-default-export": 0,
-      "no-void": 0
+      "no-void": 0,
+      "function-paren-newline": ["error", "consistent"]
   }
 }
