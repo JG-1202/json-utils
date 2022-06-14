@@ -4,7 +4,7 @@ import { chopObject } from '../chopObject';
 import { isObject } from '../isObject';
 
 /**
- * Chop an Array into smaller pieces
+ * Chop an Array or an Object into smaller pieces
  * @param toChop Array to be chopped
  * @param chopSize Maximum length of chopped element
  * @returns Array of chopped Arrays

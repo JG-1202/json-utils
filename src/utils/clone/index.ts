@@ -1,6 +1,11 @@
 import { isArray } from '../isArray';
 import { isJson } from '../isJson';
 
+/**
+ * Copies elements from Json ({} or []) recursively
+ * @param inputVariable
+ * @returns Copied Json
+ */
 export const clone = <T extends any>(inputVariable: T): T => {
   if (!isJson(inputVariable)) {
     return inputVariable;
