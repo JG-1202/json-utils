@@ -1,4 +1,5 @@
 import { isArray } from '../isArray';
+import { isDate } from '../isDate';
 import { isJson } from '../isJson';
 
 /**
@@ -7,6 +8,9 @@ import { isJson } from '../isJson';
  * @returns Copied Json
  */
 export const clone = <T extends any>(inputVariable: T): T => {
+  if (isDate(inputVariable)) {
+    return new Date(inputVariable) as T;
+  }
   if (!isJson(inputVariable)) {
     return inputVariable;
   }
