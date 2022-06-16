@@ -1,4 +1,4 @@
-import { FailureCallbackFunction, IJson } from '../../types';
+import { FailureCallbackFunction, JsonType } from '../../types';
 import { isJson } from '../isJson';
 
 const returnValue = <
@@ -6,7 +6,7 @@ T extends unknown,
 U extends unknown,
 V extends FailureCallbackFunction<U> | undefined = undefined>(
     error: unknown, inputVariable: T, callbackOnFailure?: V,
-  ): V extends undefined ? T | IJson : U | IJson => (
+  ): V extends undefined ? T | JsonType : U | JsonType => (
     callbackOnFailure ? callbackOnFailure(error, inputVariable) : inputVariable as any);
 
 /**
@@ -23,7 +23,7 @@ U extends unknown,
 V extends FailureCallbackFunction<U> | undefined = undefined>(
     inputVariable: T,
     callbackOnFailure?: FailureCallbackFunction<U> & V,
-  ): V extends undefined ? T | IJson : U | IJson => {
+  ): V extends undefined ? T | JsonType : U | JsonType => {
   if (typeof inputVariable === 'string') {
     try {
       const parsed = JSON.parse(inputVariable);

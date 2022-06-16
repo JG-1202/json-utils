@@ -1,7 +1,7 @@
 import { isObject } from '../isObject';
 import { safeParse } from '../safeParse';
 import { isArray } from '../isArray';
-import { IJson } from '../../types';
+import { JsonType } from '../../types';
 
 /**
  * Parses input recursively
@@ -9,7 +9,7 @@ import { IJson } from '../../types';
  * When parsed element is not a JSON ({} or []), the original element will be preserved.
  * @returns parsed input
  */
-export const deepParse = <T extends any>(variable: T): T | IJson => {
+export const deepParse = <T extends any>(variable: T): T | JsonType => {
   const element = safeParse(variable);
   if (isArray(element)) {
     element.forEach((_arrayElement, index) => {

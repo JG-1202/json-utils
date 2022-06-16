@@ -1,4 +1,4 @@
-import { IObject } from '../../types';
+import { ObjectType } from '../../types';
 
 /**
  * Chop an Object into smaller pieces
@@ -6,7 +6,7 @@ import { IObject } from '../../types';
  * @param chopSize Maximum number of properties within chopped element
  * @returns Array of chopped Objects
  */
-export const chopObject = <T extends IObject>(toChop: T, chopSize: number): Partial<T>[] => {
+export const chopObject = <T extends ObjectType>(toChop: T, chopSize: number): Partial<T>[] => {
   const result = [];
   const entries = Object.entries(toChop);
   for (let i = 0; i < entries.length; i += chopSize) {

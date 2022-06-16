@@ -1,4 +1,4 @@
-import { IJson } from '../../types';
+import { JsonType } from '../../types';
 import { isArray } from '../isArray';
 import { isObject } from '../isObject';
 
@@ -7,5 +7,5 @@ import { isObject } from '../isObject';
  * @param variable variable to be checked
  * @returns true if variable is an Array or Object
  */
-export const isJson = (variable: any): variable is IJson => (
+export const isJson = (variable: any): variable is JsonType => (
   isArray(variable) || isObject(variable));

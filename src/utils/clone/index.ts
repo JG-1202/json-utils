@@ -4,6 +4,7 @@ import { isJson } from '../isJson';
 
 /**
  * Copies elements from Json ({} or []) recursively
+ * Copies Objects, Arrays and Dates.
  * @param inputVariable
  * @returns Copied Json
  */

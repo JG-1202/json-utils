@@ -1,4 +1,4 @@
-import { IArray, IJson } from '../../types';
+import { ArrayType, JsonType } from '../../types';
 import { chopArray } from '../chopArray';
 import { chopObject } from '../chopObject';
 import { isObject } from '../isObject';
@@ -9,5 +9,5 @@ import { isObject } from '../isObject';
  * @param chopSize Maximum length of chopped element
  * @returns Array of chopped Arrays
  */
-export const chop = <T extends IJson>(toChop: T, chopSize: number): T[] | Partial<T>[] => (
-  isObject(toChop) ? chopObject(toChop, chopSize) : chopArray(toChop as IArray & T, chopSize));
+export const chop = <T extends JsonType>(toChop: T, chopSize: number): T[] | Partial<T>[] => (
+  isObject(toChop) ? chopObject(toChop, chopSize) : chopArray(toChop as ArrayType & T, chopSize));
