@@ -7,6 +7,7 @@ import { isArray } from './src/utils/isArray';
 import { isJson } from './src/utils/isJson';
 import { isObject } from './src/utils/isObject';
 import { isNumber } from './src/utils/isNumber';
+import { merge } from './src/utils/merge';
 import { safeParse } from './src/utils/safeParse';
 
 export {
@@ -19,5 +20,6 @@ export {
   isJson,
   isObject,
   isNumber,
+  merge,
   safeParse,
 };
