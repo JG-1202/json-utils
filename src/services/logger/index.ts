@@ -38,60 +38,67 @@ export class Logger {
 
   private entity: LogEntity;
 
-  constructor(params: LoggerParams) {
-    this.logLevel = params.logLevel || LogLevel.DEBUG;
-    this.context = params.context || {};
-    this.tags = params.tags || [];
-    this.entity = params.entity || console;
+  constructor(params?: LoggerParams) {
+    this.logLevel = params?.logLevel || LogLevel.DEBUG;
+    this.context = params?.context || {};
+    this.tags = params?.tags || [];
+    this.entity = params?.entity || console;
   }
 
   private formatLog(message: Message, ...parameters: (Context | Tags)[]): ObjectType {
     const tagsArray = parameters.filter((param) => isArray(param)) as Tags[];
     const contextArray = parameters.filter((param) => isObject(param)) as Context[];
-    return merge(this.context, ...contextArray, { message, tags: merge(this.tags, ...tagsArray) });
+    const context = merge(this.context, ...contextArray);
+    const tags = merge(this.tags, ...tagsArray);
+    return tags.length > 0 ? {
+      ...context,
+      tags,
+      message,
+    } : {
+      ...context,
+      message,
+    };
   }
 
   /**
-   * Calls entity.debug if logLevel >= DEBUG
+   * Calls entity.debug if logLevel <= DEBUG
    */
   public debug(message: Message, ...parameters: (Context | Tags)[]): void {
-    if (this.logLevel >= LogLevel.DEBUG) {
+    if (this.logLevel <= LogLevel.DEBUG) {
       this.entity.debug(this.formatLog(message, ...parameters));
     }
   }
 
   /**
-   * Calls entity.info if logLevel >= INFO
+   * Calls entity.info if logLevel <= INFO
    */
   public info(message: Message, ...parameters: (Context | Tags)[]): void {
-    if (this.logLevel >= LogLevel.INFO) {
+    if (this.logLevel <= LogLevel.INFO) {
       this.entity.info(this.formatLog(message, ...parameters));
     }
   }
 
   /**
-   * Calls entity.warn if logLevel >= WARN
+   * Calls entity.warn if logLevel <= WARN
    */
   public warn(message: Message, ...parameters: (Context | Tags)[]): void {
-    if (this.logLevel >= LogLevel.WARN) {
+    if (this.logLevel <= LogLevel.WARN) {
       this.entity.warn(this.formatLog(message, ...parameters));
     }
   }
 
   /**
-   * Calls entity.error if logLevel >= ERROR
+   * Calls entity.error
    */
   public error(message: Message, ...parameters: (Context | Tags)[]): void {
-    if (this.logLevel >= LogLevel.ERROR) {
-      this.entity.error(this.formatLog(message, ...parameters));
-    }
+    this.entity.error(this.formatLog(message, ...parameters));
   }
 
   /**
-   * Calls entity.error regardless of logLevel and throws new Error(message)
+   * Calls entity.error and throws new Error(message)
    */
   public throwLoggedError(message: Message, ...parameters: (Context | Tags)[]): void {
-    this.entity.error(this.formatLog(message, ...parameters));
+    this.error(message, ...parameters);
     throw new Error(message);
   }
 
