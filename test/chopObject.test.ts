@@ -1,4 +1,4 @@
-import { chopObject } from '../index';
+import { chopObject } from '../src/utils/chopObject';
 
 const startObject = {
   key1: 1,

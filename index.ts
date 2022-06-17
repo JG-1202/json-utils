@@ -1,6 +1,4 @@
 import { chop } from './src/utils/chop';
-import { chopArray } from './src/utils/chopArray';
-import { chopObject } from './src/utils/chopObject';
 import { clone } from './src/utils/clone';
 import { deepParse } from './src/utils/deepParse';
 import { isArray } from './src/utils/isArray';
@@ -12,8 +10,6 @@ import { safeParse } from './src/utils/safeParse';
 
 export {
   chop,
-  chopArray,
-  chopObject,
   clone,
   deepParse,
   isArray,
