@@ -8,6 +8,9 @@ import { isNumber } from './src/utils/isNumber';
 import { merge } from './src/utils/merge';
 import { safeParse } from './src/utils/safeParse';
 
+import { Logger, LogLevel } from './src/services/logger';
+import { timeout } from './src/services/timeout';
+
 export {
   chop,
   clone,
@@ -18,4 +21,7 @@ export {
   isNumber,
   merge,
   safeParse,
+  Logger,
+  LogLevel,
+  timeout,
 };

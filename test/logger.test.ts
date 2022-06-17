@@ -1,4 +1,4 @@
-import { Logger, LogLevel } from '../src/services/logger';
+import { Logger, LogLevel } from '../index';
 
 const mockConsole = {
   debug: jest.fn(),

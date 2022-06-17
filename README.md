@@ -33,7 +33,6 @@ Objects `{}` and Arrays `[]` are merged, conflicting types will be overwritten. 
 ### safeParse
 Attempts to parse input to JSON. When parsed element is not a JSON (`{}` or `[]`), the original element will be returned on default. Callback `callbackOnFailure` is called when parsed value is not JSON.
 
-
 ## Services
 
 ### Logger
@@ -47,6 +46,10 @@ Logger with the possibility to set logLevel, add context and tags, and use a cus
 * `addContext`: adds context to logger, to be added in every log message
 * `addTags`: adds tags to logger, to be added in every log message
 * `extend`: returns a new Logger instance witth current context and tags.
+
+
+### timeout
+Add a timeout to a Promise. An error will be thrown when timeout is exceeded.
 
 ## Contributing
 Pull requests are welcome.
