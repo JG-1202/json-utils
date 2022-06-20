@@ -7,8 +7,9 @@ import { isObject } from './src/utils/isObject';
 import { isNumber } from './src/utils/isNumber';
 import { merge } from './src/utils/merge';
 import { safeParse } from './src/utils/safeParse';
-
+import { sleep } from './src/utils/sleep';
 import { Logger, LogLevel } from './src/services/logger';
+import { retry } from './src/services/retry';
 import { timeout } from './src/services/timeout';
 
 export {
@@ -21,7 +22,9 @@ export {
   isNumber,
   merge,
   safeParse,
+  sleep,
   Logger,
   LogLevel,
+  retry,
   timeout,
 };

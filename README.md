@@ -6,7 +6,7 @@ Simple solutions for every-day problems.
 ### chop
 Chop Array `[]` or Object `{}` into pieces. Outputs an Array of Arrays in case input was an Array, or an Array of Objects when input was an Object.
 
-## clone
+### clone
 Copies elements from Json ({} or []) recursively. Copies Objects, Arrays and Dates.
 
 ## deepParse
@@ -33,6 +33,9 @@ Objects `{}` and Arrays `[]` are merged, conflicting types will be overwritten. 
 ### safeParse
 Attempts to parse input to JSON. When parsed element is not a JSON (`{}` or `[]`), the original element will be returned on default. Callback `callbackOnFailure` is called when parsed value is not JSON.
 
+### sleep
+wait for x milliseconds .
+ 
 ## Services
 
 ### Logger
@@ -50,6 +53,19 @@ Logger with the possibility to set logLevel, add context and tags, and use a cus
 
 ### timeout
 Add a timeout to a Promise. An error will be thrown when timeout is exceeded.
+
+### retry
+Retries any function until it is resolved, or maximum number of retries is reached. Use custom error-/retry callbacks, backoff settings and/or add a timeout to the function to be retried.
+
+Settings:
+* `retryCallback`: Function to be called on retry. `default: (details) => void details`,
+* `errorCallback`: Function to be called on error. `default: (details) => void details`,
+* `minimumBackoff`: minimum backoff in ms. This is the duration of the first backoff period. `default: 100`,
+* `backoffExponent`: exponent to be used to calculate next backoff period `default: 1.5`,
+* `maximumBackoff`:  minimum backoff in ms `default: 2000`,
+* `maximumRetryCount`: maximum number of retries `default: 5`,
+* `timeout`: maximum time allowed to resolve a single iteration (ms). When provided an attempt to resolve functionToCall will be considered as failed if the timeout is exceeded `default: null (no timeout)`,
+* `fixedBackoff`: fixed backoff period (ms) `default: null (no fixed backoff period)`
 
 ## Contributing
 Pull requests are welcome.
