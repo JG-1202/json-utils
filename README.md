@@ -9,7 +9,7 @@ Chop Array `[]` or Object `{}` into pieces. Outputs an Array of Arrays in case i
 ### clone
 Copies elements from Json ({} or []) recursively. Copies Objects, Arrays and Dates.
 
-## deepParse
+### deepParse
 Parses input recursively
 Attempts to parse any element that it encounters while recursively looping over elements
 When parsed element is not a JSON (`{}` or `[]`), the original element will be preserved.
