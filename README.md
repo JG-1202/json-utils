@@ -68,7 +68,7 @@ Settings:
 * `fixedBackoff`: fixed backoff period (ms) `default: null (no fixed backoff period)`
 
 ## Contributing
-Pull requests are welcome.
+Pull requests are welcome. Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://opensource.org/licenses/MIT)
