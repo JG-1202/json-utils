@@ -67,6 +67,23 @@ Settings:
 * `timeout`: maximum time allowed to resolve a single iteration (ms). When provided an attempt to resolve functionToCall will be considered as failed if the timeout is exceeded `default: null (no timeout)`,
 * `fixedBackoff`: fixed backoff period (ms) `default: null (no fixed backoff period)`
 
+
+## Types
+### ArrayType
+Is an Array `[]`, but not an Object `{}`.
+
+### DeepPartial<T>
+Recursively make all properties of `T` optional.
+
+### DeepRequired<T>
+Recursively make all properties of `T` required.
+
+### JsonType
+Is an Array `[]` or an Object `{}`.
+
+### ObjectType
+Is an Object `{}`, but not an Array `[]`.
+
 ## Contributing
 Pull requests are welcome. Please make sure to update tests as appropriate.
 

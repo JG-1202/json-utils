@@ -11,6 +11,9 @@ import { sleep } from './src/utils/sleep';
 import { Logger, LogLevel } from './src/services/logger';
 import { retry } from './src/services/retry';
 import { timeout } from './src/services/timeout';
+import {
+  ArrayType, DeepPartial, DeepRequired, JsonType, ObjectType,
+} from './src/types';
 
 export {
   chop,
@@ -27,4 +30,9 @@ export {
   LogLevel,
   retry,
   timeout,
+  ArrayType,
+  DeepPartial,
+  DeepRequired,
+  JsonType,
+  ObjectType,
 };
