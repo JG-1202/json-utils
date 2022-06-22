@@ -2,6 +2,7 @@ import { chop } from './src/utils/chop';
 import { clone } from './src/utils/clone';
 import { deepParse } from './src/utils/deepParse';
 import { isArray } from './src/utils/isArray';
+import { isEqual } from './src/utils/isEqual';
 import { isJson } from './src/utils/isJson';
 import { isObject } from './src/utils/isObject';
 import { isNumber } from './src/utils/isNumber';
@@ -20,6 +21,7 @@ export {
   clone,
   deepParse,
   isArray,
+  isEqual,
   isJson,
   isObject,
   isNumber,

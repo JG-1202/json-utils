@@ -17,6 +17,11 @@ When parsed element is not a JSON (`{}` or `[]`), the original element will be p
 ### isArray
 Checks whether input variable is an Array `[]`.
 
+### isEqual
+Tests whether `A` equals `B`.
+Deep comparison between the two to check whether both are equal.
+Checks strict equality and Object, Array, and Date equality.
+
 ### isJson
 Checks whether input variable is either an Array  `[]` or an Object `{}`.
 
