@@ -1,0 +1,12 @@
+# .npmignore
+node_modules
+tests
+*.ts
+/test
+/coverage
+/src
+jest.config.js
+.commitlintrc.json
+.eslintignore 
+.eslintrc.json     
+/.github
