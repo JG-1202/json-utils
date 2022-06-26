@@ -9,6 +9,9 @@ Chop Array `[]` or Object `{}` into pieces. Outputs an Array of Arrays in case i
 ### clone
 Copies elements from Json ({} or []) recursively. Copies Objects, Arrays and Dates.
 
+### dedpulicate
+Dedpucliates input. Input may be any Array. It dedpulcites based on a deep comparison between the elements to check whether equals are found. Looks for strict equality and Object, Array, and Date equality.
+
 ### deepParse
 Parses input recursively
 Attempts to parse any element that it encounters while recursively looping over elements
