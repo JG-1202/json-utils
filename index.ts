@@ -1,5 +1,6 @@
 import { chop } from './src/utils/chop';
 import { clone } from './src/utils/clone';
+import { deduplicate } from './src/utils/deduplicate';
 import { deepParse } from './src/utils/deepParse';
 import { isArray } from './src/utils/isArray';
 import { isEqual } from './src/utils/isEqual';
@@ -9,6 +10,7 @@ import { isNumber } from './src/utils/isNumber';
 import { merge } from './src/utils/merge';
 import { safeParse } from './src/utils/safeParse';
 import { sleep } from './src/utils/sleep';
+import { sortOnProperty } from './src/utils/sortOnProperty';
 import { Logger, LogLevel } from './src/services/logger';
 import { retry } from './src/services/retry';
 import { timeout } from './src/services/timeout';
@@ -19,6 +21,7 @@ import {
 export {
   chop,
   clone,
+  deduplicate,
   deepParse,
   isArray,
   isEqual,
@@ -28,6 +31,7 @@ export {
   merge,
   safeParse,
   sleep,
+  sortOnProperty,
   Logger,
   LogLevel,
   retry,

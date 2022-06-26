@@ -43,7 +43,11 @@ Attempts to parse input to JSON. When parsed element is not a JSON (`{}` or `[]`
 
 ### sleep
 wait for x milliseconds .
- 
+
+### sortOnProperty
+Sort Array on properties. Possible to sort on multiple keys. When keys input is an Array, the input Array will be first sorted on first element in keys, when input-element is equal it will be sorted on next keys-element.
+
+
 ## Services
 
 ### Logger

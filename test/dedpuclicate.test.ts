@@ -1,4 +1,4 @@
-import { deduplicate } from '../src/utils/deduplicate';
+import { deduplicate } from '../index';
 
 describe('Deduplicate', () => {
   it('Deduplicates simple arrays', () => {
