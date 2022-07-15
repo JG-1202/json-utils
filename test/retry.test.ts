@@ -165,6 +165,6 @@ describe('Retry', () => {
     expect(functionToCall).toBeCalledWith('a');
     expect(functionToCall).toBeCalledTimes(4);
     expect(endExponential * 5 < endFixed).toStrictEqual(true);
-    expect(endFixed > 1000).toStrictEqual(true);
+    expect(endFixed > 500).toStrictEqual(true);
   });
 });

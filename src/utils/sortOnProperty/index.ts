@@ -1,12 +1,19 @@
 import { ObjectType } from '../../types';
 import { isArray } from '../isArray';
 
+const typeToString = (variable: any): string => Object.prototype.toString.call(variable);
+
 const getOrder = <T extends ObjectType>(
   a: T, b: T, key: keyof T, direction?: 1 | -1,
 ) => {
   const sortDirection = direction || 1;
   if (a[key] === b[key]) {
     return 0;
+  }
+  const typeStringA = typeToString(a[key]);
+  const typeStringB = typeToString(b[key]);
+  if (typeStringA !== typeStringB) {
+    return (typeStringA > typeStringB) ? sortDirection : -sortDirection;
   }
   return (a[key] > b[key]) ? sortDirection : -sortDirection;
 };
