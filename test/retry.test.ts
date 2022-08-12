@@ -11,6 +11,16 @@ describe('Retry', () => {
     expect(functionToCall).toBeCalledWith('a', 1, 'b', 2);
     expect(functionToCall).toBeCalledTimes(1);
   });
+  it('Inherits type from function', async () => {
+    interface TestType {
+      foo: 'bar',
+    }
+    const testFunction = (): TestType => ({
+      foo: 'bar',
+    });
+    const result = await retry(testFunction, []);
+    expect(result.foo).toStrictEqual('bar');
+  });
   it('Call retry client, success on third attempt', async () => {
     const retryResponses: any[] = [];
     const errorResponses: any[] = [];

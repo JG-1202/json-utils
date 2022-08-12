@@ -1,7 +1,6 @@
 # .npmignore
 node_modules
 tests
-*.ts
 /test
 /coverage
 /src

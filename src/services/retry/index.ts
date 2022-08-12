@@ -89,7 +89,7 @@ class RetryService {
     return sleep(this.lastDelay);
   }
 
-  async retry<T extends any[]>(func: (...args: T) => any, ...args: T) {
+  async retry<T extends any[], O extends any>(func: (...args: T) => O, ...args: T): Promise<O> {
     this.startDt = new Date().getTime();
     return new Promise((resolve, reject) => {
       const retryFunction = async () => {
@@ -114,9 +114,9 @@ class RetryService {
   }
 }
 
-export const retry = async <T extends any[]>(
-  functionToCall: (...args: T) => any,
+export const retry = async <T extends any[], O extends any>(
+  functionToCall: (...args: T) => Promise<O> | O,
   functionArguments: T,
   settings?: RetrySettings,
-) => (
+): Promise<O> => (
   new RetryService(settings).retry(functionToCall, ...functionArguments));
